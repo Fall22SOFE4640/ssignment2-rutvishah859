@@ -3,6 +3,9 @@
 // found in the LICENSE file.
 
 import 'package:flutter/material.dart';
+import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:map_launcher/map_launcher.dart';
+import 'package:share_plus/share_plus.dart';
 
 void main() {
   runApp(const MyApp());
@@ -53,9 +56,9 @@ class MyApp extends StatelessWidget {
     Widget buttonSection = Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        _buildButtonColumn(color, Icons.call, 'CALL'),
-        _buildButtonColumn(color, Icons.near_me, 'ROUTE'),
-        _buildButtonColumn(color, Icons.share, 'SHARE'),
+        _buildButtonColumn(color, Icons.call, 'CALL', () => {_callButton()}),
+        _buildButtonColumn(color, Icons.near_me, 'ROUTE', () => {_routeButton()}),
+        _buildButtonColumn(color, Icons.share, 'SHARE', () => {_shareButton()}),
       ],
     );
 
@@ -95,12 +98,41 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  Column _buildButtonColumn(Color color, IconData icon, String label) {
+  _callButton() async {
+    const number = '0041336751118'; //set the number here
+    await FlutterPhoneDirectCaller.callNumber(number);
+  }
+
+  _routeButton() async {
+    try {
+      await MapLauncher.showMarker(
+        mapType: MapType.google,
+        coords: Coords(50.141079950015424, 7.69585809096936),
+        title: "Oeschinen Lake Campground",
+        description: "3718 Kandersteg, Switzerland",
+      );
+    } catch (e) {
+      throw 'Could not launch map: $e';
+    }
+  }
+
+  _shareButton() async {
+    try {
+      await Share.share('Camping Rendez-vous, Hubleweg, 3718 Kandersteg, Switzerland\n+0041336751118', subject: 'Oeschinen Lake Campground Information');
+    } catch (e) {
+      throw 'Could not share: $e';
+    }
+  }
+
+  Column _buildButtonColumn(Color color, IconData icon, String label, Function() onPressed) {
     return Column(
       mainAxisSize: MainAxisSize.min,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(icon, color: color),
+        IconButton(
+            onPressed: onPressed,
+            icon: Icon(icon, color: color)
+        ),
         Container(
           margin: const EdgeInsets.only(top: 8),
           child: Text(
