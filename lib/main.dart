@@ -118,7 +118,7 @@ class MyApp extends StatelessWidget {
 
   _shareButton() async {
     try {
-      await Share.share('Camping Rendez-vous, Hubleweg, 3718 Kandersteg, Switzerland\n+0041336751118', subject: 'Oeschinen Lake Campground Information');
+      await Share.share('Oeschinen Lake Campground, 3718 Kandersteg, Switzerland\n+0041336751118\nhttps://www.oeschinensee.ch/en/camping/', subject: 'Oeschinen Lake Campground Information');
     } catch (e) {
       throw 'Could not share: $e';
     }

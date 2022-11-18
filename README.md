@@ -1,16 +1,11 @@
-# assignment2_rutvi_shah_100747171
-
-SOFE4640 Assignment 2 - Flutter Project
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+# SOFE4640 Assignment 2 - Flutter Project
+Rutvi Shah - 100747171
+## Objective:
+Practice Flutter application development, specifically widgets.
+## App Layout:
+|     Page     |                                                                                                  Image                                                                                                  |
+|:------------:|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+|  Home Page   |                                                   [<img src="images/main-page-layout.png" alt="Home Page" width="250"/>](images/main-page-layout.png)                                                   |
+| Call Button  |                                                        [<img src="images/call-button.png" alt="Home Page" width="250"/>](images/call-button.png)                                                        |
+| Route Button |                                                       [<img src="images/route-button.png" alt="Home Page" width="250"/>](images/route-button.png)                                                       |
+| Share Button | [<img src="images/share-button.png" alt="Home Page" width="250"/>](images/share-button.png) [<img src="images/share-button-message.png" alt="Home Page" width="250"/>](images/share-button-message.png) |
